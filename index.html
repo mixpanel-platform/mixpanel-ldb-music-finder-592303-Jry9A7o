@@ -74,15 +74,7 @@
       }
     </style>
     <script>
-      // LDB NOTES
-      // nice to haves: duration (first time experiment viewed with that experiment name property was fired) and retention (has that person also paid in the last 30 days)
-      
-      // summary report: Maybe it just keys off of the primary conversion goal and shows something like experiment name, conversion rate, certainty, and improvement (I think this is pretty similar to what Optimizely does).
-      
-      // monetization is currently tracking average first payment and lifetime revenue *of everyone in the experiment* not just people who paid. do we want only those who have paid?
 
-    
-    
       var numExperiments = 0,
           peopleProps = {
             items: [
@@ -188,7 +180,7 @@
               result = '--';
           
           if (total1 < 10) {
-            ///////////////////////// $.noop(); jQuery17106252268208190799_1434488196222???????????
+            ///////////////////////// $.noop(); jQuery17106252268208190799_1434488196223???????????
             chance = 'Sample size too small'
           }
           else if (chance >= 0.95) {
@@ -312,7 +304,6 @@
         }
         
         // query Mixpanel for funnel information and transform it to populate the graph and table
-        // MP.api.funnel({event: 'Experiment Viewed', selector: 'properties["experiment name"] == "' + experimentEvent + '"'}, {event: conversionEvent, selector: conversionSelector}, funnelParameters).done(function(results) {
         MP.api.funnel({'event': 'Experiment Viewed', 'selector': 'properties["experiment name"] == "' + experimentEvent + '"'}, conversionEvent, funnelParameters).done(function(results) {
           var funnelObject = {},
               tableObject = {};
