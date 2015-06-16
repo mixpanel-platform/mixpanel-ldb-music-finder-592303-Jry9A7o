@@ -180,7 +180,7 @@
               result = '--';
           
           if (total1 < 10) {
-            ///////////////////////// $.noop(); jQuery17106252268208190799_1434488196225???????????
+            ///////////////////////// $.noop(); jQuery17106252268208190799_1434488196226???????????
             chance = 'Sample size too small'
           }
           else if (chance >= 0.95) {
@@ -212,111 +212,6 @@
       }
       
 
-      
-      addExperiment();
-
-      $('#people-prop-select').on('change', function() {
-        if ( $(this).MPSelect('value').substring($('#event-prop-select').MPSelect('value')) ) {
-          // runQuery('a');
-          // runQuery('b');
-        }
-      });
-      $('#event-prop-select').on('change', function() {
-        if ( $(this).MPSelect('value').substring($('#people-prop-select').MPSelect('value')) ) {
-          // runQuery('a');
-          // runQuery('b');
-        }
-      });
-      $('#conversion-event-a').on('change', function() {
-        // runQuery('a');
-        $('.where.a').css('display', 'inline-block');
-        
-        $('#conversion-prop-a').MPPropertySelect('setEvent', $(this).MPEventSelect('value')).css('display', 'inline-block');
-        
-      });
-      $('#conversion-prop-a').on('change', function() {
-        // runQuery('a');
-        // create dropdown that provides query options
-        var queryOptions = {
-          items: [
-            {label: 'contains', value: 'contains'},
-            {label: 'does not contain', value: 'does not contain'},
-            {label: 'equals', value: 'equals'},
-            {label: 'does not equal', value: 'does not equal'},
-            {label: 'is set', value: 'is set'},
-            {label: 'is not set', value: 'is not set'}
-            ]
-        }
-        queries['a'] = $('.contains.a').MPSelect(queryOptions).css('display', 'inline-block');
-
-        var propVals = { 
-              items: [ 
-                {label: '-- Select property value --', value: 'select'} 
-                ]
-            },
-            eventParams = {
-              event: $('#conversion-event-a').MPEventSelect('value'), 
-              name: $(this).MPPropertySelect('value'), 
-              limit: 255
-            };
-        MP.api.query('api/2.0/events/properties/values', eventParams).done(function(array) {
-          for (property in array) {
-            propVals.items.push({label: array[property], value: array[property]});
-          }
-          propValueSelects['a'] = $('#conversion-prop-value-a').MPSelect(propVals).css('display', 'inline-block');
-        });
-      });
-      $('.contains.a').on('change', function() {
-        // runQuery('a');
-      });
-      $('#conversion-prop-value-a').on('change', function() {
-        // runQuery('a');
-      });
-      $('#conversion-event-b').on('change', function() {
-        // runQuery('b');
-        $('.where.b').css('display', 'inline-block');
-
-        $('#conversion-prop-b').MPPropertySelect('setEvent', $(this).MPEventSelect('value')).css('display', 'inline-block');
-        
-      });
-      $('#conversion-prop-b').on('change', function() {
-        // runQuery('b');
-        // create dropdown that provides query options
-        var queryOptions = {
-          items: [
-            {label: 'contains', value: 'contains'},
-            {label: 'does not contain', value: 'does not contain'},
-            {label: 'equals', value: 'equals'},
-            {label: 'does not equal', value: 'does not equal'},
-            {label: 'is set', value: 'is set'},
-            {label: 'is not set', value: 'is not set'}
-            ]
-        }
-        queries['b'] = $('.contains.b').MPSelect(queryOptions).css('display', 'inline-block');
-        
-        var propVals2 = { 
-              items: [ 
-                {label: '-- Select property value --', value: 'select'} 
-                ]
-            },
-            eventParams2 = {
-              event: $('#conversion-event-b').MPEventSelect('value'), 
-              name: $(this).MPPropertySelect('value'), 
-              limit: 255
-            };
-        MP.api.query('api/2.0/events/properties/values', eventParams2).done(function(array) {
-          for (property in array) {
-            propVals2.items.push({label: array[property], value: array[property]});
-          }
-          propValueSelects['b'] = $('#conversion-prop-value-b').MPSelect(propVals2).css('display', 'inline-block');
-        });
-      });
-      $('.contains.b').on('change', function() {
-        // runQuery('b');
-      });
-      $('#conversion-prop-value-b').on('change', function() {
-        // runQuery('b');
-      });
     </script>
   </body>
 </html>
