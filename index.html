@@ -7,7 +7,72 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
-    <h1>Hello, World!</h1>
+    <h1>A/B Test: Experiment Detail</h1>
+    <div id="experiment">
+      <div class="left">
+        <p>Experiment (People Property Name)</p>
+        <div id="people-prop-select"></div>
+      </div>
+      <div class="middle">
+        <p>Experiment Name (Event Property)</p>
+        <div id="event-prop-select"></div>
+      </div>
+      <div class="right">
+        <p>Date Range (for funnel start date)</p>
+        <div id="date-select"></div>
+      </div>
+      <br><br><br><hr><br>
+      <div class="conversion">
+        <p>Conversion Event 1</p>
+        <div id="conversion-event-a"></div>
+        <div class="select where a mixpanel-platform-label">where</div>
+        <div class="select prop" id="conversion-prop-a"></div>
+        <div class="select contains a"></div>
+        <div class="select prop" id="conversion-prop-value-a"></div>
+        <div class="report" id="funnel-a"></div>
+        <div class="report" id="table-a"></div>
+      </div>
+      <br><hr><br>
+      <div class="conversion">
+        <p>Conversion Event 2</p>
+        <div id="conversion-event-b"></div>
+        <div class="select where b mixpanel-platform-label">where</div>
+        <div class="select prop" id="conversion-prop-b"></div>
+        <div class="select contains b"></div>
+        <div class="select prop" id="conversion-prop-value-b"></div>
+        <div class="report" id="funnel-b"></div>
+        <div class="report" id="table-b"></div>
+      </div>
+    </div>
+    <style>
+      body {
+        color: rgb(95,105,131);
+      }
+      h1 {
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+      p {
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .left, .middle, .right {
+        width: 30%;
+        display: inline-block;
+      }
+      .select {
+        margin: 15px 15px 0 0;
+      }
+      .where {
+        line-height: 33px;
+      }
+      .where, .contains {
+        display: none;
+      }
+      .report {
+        margin: 15px 0 0;
+      }
+    </style>
     <script>
       // Run queries and display results here
     </script>
